@@ -34,8 +34,8 @@ class EditBoard
       row
     }
     board_rows.transpose.each { |col| switch = true if col.uniq.length == 1}
-    switch = true if ((board_rows[0][0].is_a?String) && (board_rows[1][1].is_a?String) && (board_rows[2][2].is_a?String)) ||
-                     ((board_rows[0][2].is_a?String) && (board_rows[1][1].is_a?String) && (board_rows[2][0].is_a?String))
+    # switch = true if ((board_rows[0][0].is_a?String) && (board_rows[1][1].is_a?String) && (board_rows[2][2].is_a?String)) ||
+    #                  ((board_rows[0][2].is_a?String) && (board_rows[1][1].is_a?String) && (board_rows[2][0].is_a?String))
 
     switch
   end

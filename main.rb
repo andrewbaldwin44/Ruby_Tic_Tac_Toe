@@ -8,7 +8,7 @@ puts "\nWelcome! Let's Play a game of Tic-Tac-Toe!".bg_blue
 loop do
   (1..2).each do |i|
     puts tic_tac_toe.show_board
-    puts i == 1 ? "Player #{i}:".bg_brown : "Player #{i}:".bg_magenta
+    puts i == 1 ? "Player #{i}:".bold.bg_brown : "Player #{i}:".bold.bg_magenta
     puts "Please select a spot (1-9)"
 
     player_choice = gets.chomp
