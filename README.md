@@ -1,7 +1,7 @@
 #Ruby Tic-Tac-Toe Game!
 >A Tic-Tac-Toe game written in Ruby for the Odin Project!
 
-[![Run on Repl.it](https://repl.it/badge/github/andrewbaldwin44/Tic_Tac_Toe)](https://repl.it/github/andrewbaldwin44/Tic_Tac_Toe)
+[View Demo] (https://repl.it/@andrewbaldwin44/TicTacToe-1)
 
 ## Author
 
