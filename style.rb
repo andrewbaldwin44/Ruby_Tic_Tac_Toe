@@ -1,4 +1,5 @@
 class String
+  def red;            "\e[31m#{self}\e[0m" end
   def brown;          "\e[33m#{self}\e[0m" end
   def magenta;        "\e[35m#{self}\e[0m" end
 

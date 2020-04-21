@@ -5,27 +5,35 @@ tic_tac_toe = EditBoard.new
 
 puts "\nWelcome! Let's Play a game of Tic-Tac-Toe!".bg_blue
 
-loop do
-  (1..2).each do |i|
+play_game = true
+
+while play_game
+  (1..2).each do |player|
     puts tic_tac_toe.show_board
-    puts i == 1 ? "Player #{i}:".bold.bg_brown : "Player #{i}:".bold.bg_magenta
+    puts player == 1 ? "Player #{player}:".brown : "Player #{player}:".magenta
     puts "Please select a spot (1-9)"
 
     player_choice = gets.chomp
 
-    tic_tac_toe.update_board(player_choice, i)
+    until tic_tac_toe.valid_placement?(player_choice) do
+      puts "\nYou can't place here! Please enter a number 1-9".red
+      player_choice = gets.chomp
+    end
 
-    if tic_tac_toe.end_game?
-      puts "\nPlayer #{i} is the winner!".bg_green
+    tic_tac_toe.update_board(player)
+
+    if tic_tac_toe.winner?
+      puts "\nPlayer #{player} is the winner!".bg_green
       puts tic_tac_toe.show_board
+      play_game = false
       break
     end
 
     if tic_tac_toe.tie_game?
       puts "\nTie game!".bg_cyan
       puts tic_tac_toe.show_board
+      play_game = false
       break
     end
   end
-  break if tic_tac_toe.end_game? || tic_tac_toe.tie_game?
 end

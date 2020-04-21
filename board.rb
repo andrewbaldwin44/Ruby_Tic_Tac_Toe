@@ -7,4 +7,8 @@ module Display
       "#{piece_placement[6]} | #{piece_placement[7]} | #{piece_placement[8]}\n" \
       "\n-----------------------------------------\n\n"
   end
+
+  def update_display(game_piece)
+    piece_placement[move - 1] = game_piece
+  end
 end

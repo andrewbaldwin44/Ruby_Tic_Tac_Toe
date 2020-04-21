@@ -6,37 +6,35 @@ class EditBoard
 
   def initialize
     @piece_placement = (1..9).to_a
+
+    row_wins = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    column_wins = row_wins.transpose
+    diagonal_wins = [[0, 4, 8], [2, 4, 6]]
+
+    @win_template = row_wins + column_wins + diagonal_wins
   end
 
-  attr_accessor :piece_placement, :move
+  attr_accessor :piece_placement, :move, :game_piece, :win_template
 
-  def validate_placement
-    (move.is_a?Numeric) && move > 0 && move < 9 && (piece_placement[move - 1].is_a?Numeric)
-  end
-
-  def update_board(move, player)
+  def valid_placement?(move)
     @move = move.to_i
 
-    game_piece = player == 1 ? "X".brown : "O".magenta
+    piece_placement.select { |spot| spot.is_a?Numeric}.include?(@move)
+  end
 
-    self.piece_placement[@move - 1] = game_piece
+  def update_board(player)
+    update_display(@game_piece = player == 1 ? "X".brown : "O".magenta)
   end
 
   def show_board
     self.display(piece_placement)
   end
 
-  def end_game?
+  def winner?
     switch = false
-
-    board_rows = piece_placement.each_slice(3).map { |row|
-      switch = true if row.uniq.length == 1
-      row
-    }
-    board_rows.transpose.each { |col| switch = true if col.uniq.length == 1}
-    # switch = true if ((board_rows[0][0].is_a?String) && (board_rows[1][1].is_a?String) && (board_rows[2][2].is_a?String)) ||
-    #                  ((board_rows[0][2].is_a?String) && (board_rows[1][1].is_a?String) && (board_rows[2][0].is_a?String))
-
+    win_template.each do |win|
+      switch = true if win.all? { |spot| piece_placement[spot] == game_piece}
+    end
     switch
   end
 
