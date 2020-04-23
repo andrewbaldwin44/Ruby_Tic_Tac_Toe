@@ -36,4 +36,15 @@ while play_game
       break
     end
   end
+
+  if play_game == false
+    puts "Would you like to play again? (yes/no)".bg_blue
+    new_game = gets.chomp.downcase
+
+    if new_game == "yes" or new_game == "y"
+      play_game = true
+      tic_tac_toe = EditBoard.new
+    end
+  end
+
 end

@@ -2,19 +2,24 @@ require "./board"
 require "./style"
 
 class EditBoard
+  private
+
   include Display
 
   def initialize
     @piece_placement = (1..9).to_a
 
-    row_wins = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    row_wins = @piece_placement.each_slice(3).map { |e| e}
     column_wins = row_wins.transpose
     diagonal_wins = [[0, 4, 8], [2, 4, 6]]
 
     @win_template = row_wins + column_wins + diagonal_wins
   end
 
-  attr_accessor :piece_placement, :move, :game_piece, :win_template
+  attr_reader :win_template
+  attr_accessor :piece_placement, :move, :game_piece
+
+  public
 
   def valid_placement?(move)
     @move = move.to_i
