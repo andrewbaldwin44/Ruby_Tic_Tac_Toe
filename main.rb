@@ -1,7 +1,7 @@
-require "./editboard"
-require "./style"
+require "./libs/gameplay"
+require "./libs/style"
 
-tic_tac_toe = EditBoard.new
+tic_tac_toe = Gameplay.new
 
 puts "\nWelcome! Let's Play a game of Tic-Tac-Toe!".bg_blue
 
@@ -43,7 +43,7 @@ while play_game
 
     if new_game == "yes" or new_game == "y"
       play_game = true
-      tic_tac_toe = EditBoard.new
+      tic_tac_toe = Gameplay.new
     end
   end
 

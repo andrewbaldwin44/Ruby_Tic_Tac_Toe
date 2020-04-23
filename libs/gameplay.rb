@@ -1,7 +1,7 @@
-require "./board"
-require "./style"
+require "./libs/board"
+require "./libs/style"
 
-class EditBoard
+class Gameplay
   private
 
   include Display
