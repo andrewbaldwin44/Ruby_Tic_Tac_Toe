@@ -8,7 +8,7 @@
 
 ## Demo
 
-[![Run on Repl.it](https://repl.it/badge/github/@andrewbaldwin44/.cpp)](https://repl.it/@andrewbaldwin44/@andrewbaldwin44/TicTacToe#main.rb)
+[![Run on Repl.it](https://repl.it/badge/github/@andrewbaldwin44/.cpp)](https://repl.it/@andrewbaldwin44/TicTacToe#main.rb)
 
 ## How to Play
 
